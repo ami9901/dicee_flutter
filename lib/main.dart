@@ -18,6 +18,21 @@ void main() {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Row(
+      children: <Widget>[
+        Expanded(   //expands horizontally or vertically maximum available size
+          flex: 2,        //flex is like layout_weight in android, here it takes double the size of space that dice2 image takes.
+          child: Image(
+            image: AssetImage('images/dice1.png'),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Image(
+            image: AssetImage('images/dice2.png'),
+          ),
+        ),
+      ],
+    );
   }
 }
