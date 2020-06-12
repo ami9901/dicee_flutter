@@ -15,7 +15,13 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,16 +31,18 @@ class DicePage extends StatelessWidget {
             //expands horizontally or vertically maximum available size
             child: FlatButton(
               onPressed: () {
-                print(
-                    'Left button pressed'); //prints in th log console of 'Run'
+                setState(() {
+                  // it runs the build method again to change the state in the UI
+                  leftDiceNumber = 3;
+                });
               },
-              child: Image.asset('images/dice1.png'),
+              child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
             child: FlatButton(
               onPressed: () {
-                print('Right button pressed');
+                print('right');
               },
               child: Image.asset('images/dice2.png'),
             ),
